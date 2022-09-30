@@ -1,4 +1,4 @@
-const keyArray = 
+const buttonArray = 
                 [
                     ["q", "w", "e", "r", "t", "y"],
                     ["u", "i", "o", "p", "close-br", "open-br"],
@@ -8,11 +8,14 @@ const keyArray =
                     ["n", "m", "comma", "period", "fslash", "shift"]
                 ];
 
+const arrowArray = ["left", "up", "right", "down"];
+const arrowImg = ["\u2190","\u2191", "\u2192", "\u2193"];
+
 const arrowContainer = document.querySelector(".arrow-container");
 for(let i = 0; i < 4; i++) {
     const arrowBtns = document.createElement("button");
-    arrowBtns.classList.add("arrow", `arrowBtns${i}`);
-    arrowBtns.textContent = i;
+    arrowBtns.classList.add("arrow", `arrowBtns-${arrowArray[i]}`);
+    arrowBtns.textContent = arrowImg[i];
     arrowContainer.append(arrowBtns);
 }
 
@@ -20,7 +23,7 @@ const buttonContainer = document.querySelector(".button-container");
 for(let row = 0; row < 6; row++) {
     for(let column = 0; column < 6; column++) {
         const launchButton = document.createElement("button");
-        launchButton.classList.add("padKey", `padKey-${keyArray[row][column]}`);
+        launchButton.classList.add("padKey", `padKey-${buttonArray[row][column]}`);
         buttonContainer.append(launchButton);
     }
 }
