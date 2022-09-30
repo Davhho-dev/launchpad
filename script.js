@@ -41,7 +41,10 @@ window.addEventListener("keydown", (e) => {
     let keySelected = e.keyCode;
     console.log(e.keyCode);
     const padSelected = document.querySelector(`button.padKey-${keySelected}`);
-    padSelected.setAttribute("style", "background-color: yellow;");
+    padSelected.classList.add('playing');
+    setTimeout(function() {
+        padSelected.classList.remove("playing");
+    }, 100);
 })
 
 // window.addEventListener("keydown", function(e) {
