@@ -37,6 +37,7 @@ h1 {
     width: 70px;
     height: 70px;
     border-radius: 50px;
+    font-size: 2rem;
 }
 
 .inner-container {
