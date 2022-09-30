@@ -66,5 +66,6 @@ h1 {
 
 /*test*/
 .playing {
-    border: 2px solid yellow;
+    border: 2px solid rgb(0, 85, 255);
+    background-color: rgb(55, 0, 255);
 }

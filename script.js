@@ -39,17 +39,15 @@ for (let row = 0; row < 6; row++) {
 
 window.addEventListener("keydown", (e) => {
     let keySelected = e.keyCode;
+    const audio = document.querySelector(`audio[data-key="${keySelected}"]`);
+    audio.currentTime = 0;
+    audio.play();
     console.log(e.keyCode);
     const padSelected = document.querySelector(`button.padKey-${keySelected}`);
     padSelected.classList.add('playing');
+    
     setTimeout(function() {
         padSelected.classList.remove("playing");
     }, 100);
 })
 
-// window.addEventListener("keydown", function(e) {
-//     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-//     console.log(audio);
-//     audio.currentTime = 0;
-//     audio.play();
-// })
