@@ -63,3 +63,8 @@ h1 {
     width: 106px;
     font-size: 25px;
 }
+
+/*test*/
+.padKey:focus {
+    border: solid green;
+}
