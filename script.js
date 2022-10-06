@@ -4,6 +4,8 @@ const buttonArray = ["81", "87","69","82","84","89","85","73","79","80","219", "
 const buttonImg = ["q","w","e","r","t","y","u","i","o","p","[","]","\\","a","s","d","f","g","h",
 "j","k","l",";","'","Enter","z","x","c","v","b","n","m",",",".","/","Shift"];
 
+let startArr = ['81','87','69','82','84','89','221','71','222','66','16','191','190','188','77','78','13','72','220','85','73','79','80','219','70','186','86','67','88','90','74','65','83','68','76','75'];
+
 const arrowArray = ["left", "up", "right", "down"];
 const arrowImg = ["\u2190", "\u2191", "\u2192", "\u2193"];
 
@@ -32,7 +34,6 @@ for (let i = 0; i < 36; i++) {
   launchButton.textContent = buttonImg[i];
   buttonContainer.append(launchButton);
 }
-
 window.addEventListener("keydown", (e) => {
   let keySelected = e.keyCode;
   const audio = document.querySelector(`audio[data-key="${keySelected}"]`);
@@ -41,11 +42,26 @@ window.addEventListener("keydown", (e) => {
   console.log(e.keyCode);
   const padSelected = document.querySelector(`div.padKey-${keySelected}`);
   padSelected.classList.add("playing");
-  setTimeout(function () {
+  setTimeout(function() {
     padSelected.classList.remove("playing");
     lightSequence(keySelected);
   }, 150);
 });
+
+
+for(let i = 0; i < startArr.length; i++) {
+  const padSelected = document.querySelector(`div.padKey-${startArr[i]}`);
+  setDelay(padSelected, i);
+}
+
+function setDelay(pad, index) {
+  setTimeout(function() {
+    pad.classList.add("playing");
+    setTimeout(function() {
+      pad.classList.remove("playing");
+    }, 1000);
+  }, index * 150);  //multiply by index so that the items does not appear all at once
+}
 
 function mkPadArr(keys) {
   let startIndex = buttonArray.indexOf(`${keys}`) + 1;
