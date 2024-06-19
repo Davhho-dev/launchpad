@@ -9,6 +9,8 @@ let startArr = ['81','87','69','82','84','89','221','71','222','66','16','191','
 const arrowArray = ["left", "up", "right", "down"];
 const arrowImg = ["\u2190", "\u2191", "\u2192", "\u2193"];
 
+let songList = "data-key";
+
 const buttonContainer = document.querySelector(".button-container");
 for (let i = 0; i < 36; i++) {
   const launchButton = document.createElement("div");
@@ -19,7 +21,7 @@ for (let i = 0; i < 36; i++) {
 
 window.addEventListener("keydown", (e) => {
   let keySelected = e.keyCode;
-  const audio = document.querySelector(`audio[data-key="${keySelected}"]`);
+  const audio = document.querySelector(`audio[${songList}="${keySelected}"]`);
   audio.currentTime = 0;
   audio.play();
   const padSelected = document.querySelector(`div.padKey-${keySelected}`);
@@ -29,6 +31,12 @@ window.addEventListener("keydown", (e) => {
     lightSequence(keySelected);
   }, 150);
 });
+
+window.addEventListener("click", (e) => {
+  if(e.target.textContent === "Boy & Bear") songList = "data-key";
+  else if(e.target.textContent === "Cold Heart") songList = "data-key2";
+});
+
 
 //start up light sequence when app is launched
 for(let i = 0; i < startArr.length; i++) {
